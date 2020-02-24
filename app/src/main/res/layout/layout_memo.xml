@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="item" type="com.line.mymemo.entity.MemoWithImageEntity" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:elevation="1dp"
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true"
+        app:cardBackgroundColor="@color/cardview_light_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:orientation="horizontal">
+
+            <!-- 이미지 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_thumnail"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                app:cardCornerRadius="8dp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/cardview_light_background">
+
+                <ImageView
+                    android:id="@+id/image_view_thumnail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    setImage="@{item.images}"
+                    tools:src="@drawable/ic_launcher_background" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- 제목 & 내용 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_view_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:text="@{item.memo.title}"
+                    android:hint="@string/no_title"
+                    tools:text="제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다."/>
+
+                <TextView
+                    android:id="@+id/text_view_contents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"
+                    android:text="@{item.memo.contents}"
+                    android:hint="@string/no_contents"
+                    tools:text="메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다.메모입니다."/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end|bottom"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textSize="10sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:text="@{item.memo.regdate}"
+                        android:hint="No Date"
+                        tools:text="2020-02-23"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
